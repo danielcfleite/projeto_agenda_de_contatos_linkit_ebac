@@ -42,7 +42,7 @@
 body {
   background-color: #242424;
   font-family: "Lato", sans-serif;
-  background-image: url(https://img.freepik.com/fotos-gratis/ornamento-de-folha-de-close-up_23-2147810769.jpg?w=1060&t=st=1704563027~exp=1704563627~hmac=aa2aba2ccb15b16ccabaf02f7836dc37474c234017df5347a254c9f6c1fd57ae);
+  background-image: url("./assets/bg1.jpg");
   background-size: cover;
 }
 
