@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="./assets/icon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>LinkIt!</title>
+  </head>
+  <body>
+    <div class="content">
+      <div class="groups">
+        <div class="brand">
+          <img src="./assets/icon.png" alt="" />
+          <img src="./assets/logo.png" alt="" />
+        </div>
+        <h2>Seus grupos</h2>
+        <ul id="list-of-groups">
+          <li>Grupo 1</li>
+          <li>Grupo 1</li>
+          <li>Grupo 1</li>
+        </ul>
+      </div>
+      <div class="contacts-display">
+        <div class="contacts-list">
+          <h2>Seus contatos</h2>
+          <ul id="list-of-contacts">
+            <li>
+              <span>Daniel Carvalho de Freitas Leite</span
+              ><span>(12) 98293-4040</span
+              ><button><i class="ph ph-star"></i></button>
+            </li>
+            <li>Contato 2</li>
+            <li>Contato 4</li>
+            <li>Contato 5</li>
+            <li>Contato 5</li>
+            <li>Contato 5</li>
+            <li>Contato 5</li>
+            <li>Contato 5</li>
+            <li>Contato 5</li>
+            <li>Contato 5</li>
+            <li>Contato 5</li>
+            <li>Contato 5</li>
+            <li>Contato 5</li>
+            <li>Contato 5</li>
+            <li>Contato 5</li>
+            <li>Contato 5</li>
+            <li>Contato 5</li>
+            <li>Contato 5</li>
+            <li>Contato 5</li>
+            <li>Contato 5</li>
+            <li>Contato 5</li>
+          </ul>
+          <div id="background-selection" class="hidden">
+            <img class="bg" src="./assets/bg1.jpg" alt="" />
+            <img class="bg" src="./assets/bg2.jpg" alt="" />
+            <img class="bg" src="./assets/bg3.jpg" alt="" />
+            <img class="bg" src="./assets/bg-4.webp" alt="" />
+            <img class="bg" src="./assets/bg-5.jpg" alt="" />
+            <img class="bg" src="./assets/bg-6.png" alt="" />
+          </div>
+          <form id="form" class="hidden">
+            <div class="form-item">
+              <label for="name">Nome:</label>
+              <input type="text" id="name" required />
+            </div>
+            <div class="form-item">
+              <label for="phone-number">Telefone:</label>
+              <input type="tel" id="phone-number" required />
+            </div>
+            <div class="form-item" id="select-group-item">
+              <label for="selectGroup">Grupos:</label>
+              <select id="selectGroup">
+                <!-- Opções de categorias existentes serão adicionadas dinamicamente via JavaScript -->
+              </select>
+            </div>
+            <div class="form-item new-group hidden">
+              <label for="novaCategoria">Novo Grupo:</label>
+              <input type="text" id="novaCategoria" />
+            </div>
+            <button id="create-new-group">novo grupo</button>
+
+            <button type="submit">Adicionar Contato</button>
+          </form>
+          <div class="nav-contacts">
+            <div class="button-wrapper">
+              <span id="add-contact-span">Adicionar Contato</span>
+              <button id="add-button">
+                <i class="ph-fill ph-plus"></i>
+              </button>
+            </div>
+            <div class="button-wrapper">
+              <span>Favoritos</span>
+              <button id="favorites-button">
+                <i class="ph-fill ph-star"></i>
+              </button>
+            </div>
+            <div class="button-wrapper">
+              <span>Backgrounds</span>
+              <button id="background-button">
+                <i class="ph-fill ph-images-square"></i>
+              </button>
+            </div>
+            <div class="button-wrapper">
+              <span>Github</span>
+              <button id="github-button">
+                <i class="ph-fill ph-github-logo"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
