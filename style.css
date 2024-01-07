@@ -109,6 +109,10 @@ nav img {
   transition: 0.5s;
 }
 
+#add-contact-span {
+  width: 5vw;
+}
+
 .quick-menu button,
 .contacts-list button {
   transition: 0.5s;
@@ -277,10 +281,10 @@ h6 {
   width: 90%;
   font-size: 1.2rem;
   margin: 1rem 0;
-  padding: 1rem;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
+  gap: 4rem;
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.1),
@@ -295,6 +299,11 @@ h6 {
   transition: 0.5s;
   text-align: center;
   color: white;
+}
+
+.name-li {
+  width: 40%;
+  overflow: hidden;
 }
 
 .contacts-list ul li span {
@@ -331,7 +340,7 @@ h6 {
   color: white;
 }
 
-.contacts-list ul li button:hover > i {
+.contacts-list ul li button:first-of-type:hover > i {
   animation: background-pan 1.5s linear infinite;
   background: linear-gradient(
     to right,
@@ -374,19 +383,26 @@ h6 {
   width: 70%;
   padding: 0.7rem;
   border-radius: 15px;
+  border: none;
 }
 
 button[type="submit"],
-#create-new-group {
+#create-new-group,
+#modal-choice-of-groups button,
+#modal-number-already-exists button {
   font-size: 1.6rem;
   padding: 1.4rem;
   border: 1px solid #9bd155;
   border-radius: 15px;
   color: white;
+  cursor: pointer;
+  background-color: transparent;
 }
 
 button[type="submit"]:hover,
-#create-new-group:hover {
+#create-new-group:hover,
+#modal-choice-of-groups button:hover,
+#modal-number-already-exists button:hover {
   background-color: #699929;
   border: 1px solid white;
 }
@@ -414,6 +430,8 @@ ul {
 #background-selection img {
   width: 500px;
   height: 500px;
+  margin-bottom: 20px;
+  margin-right: 20px;
   object-fit: cover;
   cursor: pointer;
   transition: 0.2s;
@@ -423,4 +441,74 @@ ul {
 #background-selection img:hover {
   transform: scale(1.02);
   border: 1px solid #699929;
+}
+
+#modal-choice-of-groups,
+#modal-number-already-exists {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  border: 2px solid #699929;
+  z-index: 3;
+  position: fixed;
+  width: 60vw;
+  height: 60vh;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  margin: 20vh 20vw;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(112, 233, 102, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+#modal-choice-of-groups p,
+#modal-number-already-exists p {
+  text-align: center;
+  font-size: 1.6rem;
+  padding: 2rem;
+}
+
+#is-favorite {
+  transform: scale(1.3);
+  width: 5vw;
+}
+
+#buttons-of-group-select,
+#buttons-of-number-already-exists {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+#cancel-select-group,
+#cancel-number-already-exists {
+  background-color: #ac3333 !important;
+  border: 2px solid #242424 !important;
+}
+
+#cancel-select-group:hover,
+#cancel-number-already-exists {
+  background-color: #aa4444 !important;
+  border: 2px solid white !important;
+}
+
+.ph-trash {
+  color: rgb(245, 82, 82);
+}
+
+.ph-trash:hover {
+  color: rgb(240, 101, 101);
+}
+
+#is-favorite-item {
+  display: flex;
+  justify-content: flex-start;
+  gap: 5rem;
 }

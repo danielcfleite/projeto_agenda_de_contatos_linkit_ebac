@@ -15,6 +15,21 @@
     <title>LinkIt!</title>
   </head>
   <body>
+    <div id="modal-number-already-exists" class="hidden">
+      <p id="number-already-exists-message"></p>
+      <div id="buttons-of-number-already-exists">
+        <button id="number-already-exists-first-choice"></button>
+        <button id="cancel-number-already-exists"></button>
+      </div>
+    </div>
+    <div id="modal-choice-of-groups" class="hidden">
+      <p id="select-group-message"></p>
+      <div id="buttons-of-group-select">
+        <button id="select-group-first-choice"></button>
+        <button id="select-group-second-choice"></button>
+        <button id="cancel-select-group">cancelar</button>
+      </div>
+    </div>
     <div class="content">
       <div class="groups">
         <div class="brand">
@@ -22,42 +37,12 @@
           <img src="./assets/logo.png" alt="" />
         </div>
         <h2>Seus grupos</h2>
-        <ul id="list-of-groups">
-          <li>Grupo 1</li>
-          <li>Grupo 1</li>
-          <li>Grupo 1</li>
-        </ul>
+        <ul id="list-of-groups"></ul>
       </div>
       <div class="contacts-display">
         <div class="contacts-list">
           <h2>Seus contatos</h2>
-          <ul id="list-of-contacts">
-            <li>
-              <span>Daniel Carvalho de Freitas Leite</span
-              ><span>(12) 98293-4040</span
-              ><button><i class="ph ph-star"></i></button>
-            </li>
-            <li>Contato 2</li>
-            <li>Contato 4</li>
-            <li>Contato 5</li>
-            <li>Contato 5</li>
-            <li>Contato 5</li>
-            <li>Contato 5</li>
-            <li>Contato 5</li>
-            <li>Contato 5</li>
-            <li>Contato 5</li>
-            <li>Contato 5</li>
-            <li>Contato 5</li>
-            <li>Contato 5</li>
-            <li>Contato 5</li>
-            <li>Contato 5</li>
-            <li>Contato 5</li>
-            <li>Contato 5</li>
-            <li>Contato 5</li>
-            <li>Contato 5</li>
-            <li>Contato 5</li>
-            <li>Contato 5</li>
-          </ul>
+          <ul id="list-of-contacts"></ul>
           <div id="background-selection" class="hidden">
             <img class="bg" src="./assets/bg1.jpg" alt="" />
             <img class="bg" src="./assets/bg2.jpg" alt="" />
@@ -69,29 +54,41 @@
           <form id="form" class="hidden">
             <div class="form-item">
               <label for="name">Nome:</label>
-              <input type="text" id="name" required />
+              <input type="text" id="name" maxlength="40" required />
             </div>
             <div class="form-item">
               <label for="phone-number">Telefone:</label>
-              <input type="tel" id="phone-number" required />
+              <input
+                type="tel"
+                id="phone-number"
+                maxlength="15"
+                onkeyup="handlePhone(event)"
+                required
+              />
             </div>
             <div class="form-item" id="select-group-item">
-              <label for="selectGroup">Grupos:</label>
-              <select id="selectGroup">
+              <label for="select-group">Grupos:</label>
+              <select id="select-group">
                 <!-- Opções de categorias existentes serão adicionadas dinamicamente via JavaScript -->
+                <option value="none"></option>
+                <option value="banana">Apple</option>
               </select>
             </div>
             <div class="form-item new-group hidden">
-              <label for="novaCategoria">Novo Grupo:</label>
-              <input type="text" id="novaCategoria" />
+              <label for="new-group">Novo Grupo:</label>
+              <input type="text" id="new-group" />
+            </div>
+            <div class="form-item" id="is-favorite-item">
+              <label for="myCheckbox">Favoritos:</label>
+              <input type="checkbox" id="is-favorite" />
             </div>
             <button id="create-new-group">novo grupo</button>
 
-            <button type="submit">Adicionar Contato</button>
+            <button type="submit" id="send-form">Adicionar Contato</button>
           </form>
           <div class="nav-contacts">
             <div class="button-wrapper">
-              <span id="add-contact-span">Adicionar Contato</span>
+              <span id="add-contact-span">Adicionar</span>
               <button id="add-button">
                 <i class="ph-fill ph-plus"></i>
               </button>
