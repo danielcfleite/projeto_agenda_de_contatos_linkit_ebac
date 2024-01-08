@@ -306,6 +306,15 @@ h6 {
   overflow: hidden;
 }
 
+.phone-li {
+  width: 40%;
+}
+
+.favorite,
+.remove {
+  width: 10%;
+}
+
 .contacts-list ul li span {
   user-select: text;
 }

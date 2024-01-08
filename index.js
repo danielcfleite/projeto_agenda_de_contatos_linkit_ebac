@@ -250,6 +250,14 @@ function createNewContact(contactData) {
   contacts.push(contactData);
   updateGroups();
   updateContactList();
+  clearFormData();
+}
+
+function clearFormData() {
+  name.value = "";
+  phoneNumber.value = "";
+  selectGroupCheck.checked = false;
+  newGroup.value = "";
 }
 
 function removeContactFromContactList(id) {
@@ -330,12 +338,39 @@ function updateContactList(isFavoritesUpdate, favorites) {
   }
 }
 
+function updateContactsByGroup(group) {
+  contactsByGroup = contacts.filter((contact) => contact.group === group);
+  contactsByGroup.forEach((contact) => {
+    contactsList.innerHTML = "";
+    const li = document.createElement("li");
+    li.innerHTML = `
+  <span class="name-li">${contact.name}</span
+  ><span class="phone-li">${contact.phoneNumber}</span>
+  <button class="favorite" data-id=${
+    contact.id
+  } onclick="toggleFavorite(this.dataset.id)">
+    ${
+      contact.favorite
+        ? '<i class="ph-fill ph-star"></i>'
+        : '<i class="ph ph-star"></i>'
+    }
+  </button>
+  <button class="remove" data-id=${
+    contact.id
+  } onclick="removeContactFromContactList(this.dataset.id)">
+    <i class="ph ph-trash"></i>
+  </button>`;
+    contactsList.appendChild(li);
+  });
+}
+
 function getGroups() {
   const uniqueGroups = new Set();
   contacts.forEach((contact) => {
     uniqueGroups.add(contact.group);
   });
   groups = uniqueGroups;
+  createGroupsOptions(groups);
 }
 
 function updateGroups() {
@@ -343,9 +378,24 @@ function updateGroups() {
   groupsList.innerHTML = " ";
   groups.forEach((group) => {
     const li = document.createElement("li");
+    li.onclick = function () {
+      updateContactsByGroup(group.toString());
+    };
+
     li.innerHTML = `${group.toString()}`;
     groupsList.appendChild(li);
   });
+}
+
+function createGroupsOptions(groups) {
+  selectGroupCheck;
+  groups.forEach((group) => {
+    const option = document.createElement("option");
+    option.value = group;
+    option.text = group;
+    selectGroupCheck.appendChild(option);
+  });
+  //working
 }
 
 // -- Validate Phone Number
@@ -393,5 +443,7 @@ backgrounds.forEach((bg) => {
 function resetContactsDeveloper() {
   localStorage.setItem("contacts", JSON.stringify(""));
 }
+
+updateGroups();
 
 //--
