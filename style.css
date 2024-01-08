@@ -315,6 +315,13 @@ h6 {
   width: 10%;
 }
 
+#github-button a,
+#github-button a:active,
+#github-button a:visited {
+  color: white;
+  text-decoration: none;
+}
+
 .contacts-list ul li span {
   user-select: text;
 }

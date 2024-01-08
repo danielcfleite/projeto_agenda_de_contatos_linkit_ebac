@@ -1,7 +1,6 @@
 const addButton = document.querySelector("#add-button");
 const favoritesButton = document.querySelector("#favorites-button");
 const backgroundButton = document.querySelector("#background-button");
-const githubButton = document.querySelector("#github-button");
 const contactsList = document.querySelector("#list-of-contacts");
 const groupsList = document.querySelector("#list-of-groups");
 const createNewGroupButton = document.querySelector("#create-new-group");
@@ -101,11 +100,6 @@ favoritesButton.addEventListener("click", (event) => {
     isAtFavorite = false;
     console.log(isAtFavorite);
   }
-});
-
-githubButton.addEventListener("click", (event) => {
-  event.preventDefault();
-  alert("clicou em github");
 });
 
 sendFormButton.addEventListener("click", (event) => {
