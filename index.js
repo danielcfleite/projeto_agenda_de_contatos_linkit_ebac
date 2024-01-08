@@ -231,6 +231,7 @@ function createNewContact(contactData) {
       contacts.push(contactData);
       updateContactList();
       updateGroups();
+      clearFormData();
       modalNumberAlreadyExists.classList.add("hidden");
       return;
     });
@@ -250,7 +251,7 @@ function createNewContact(contactData) {
 function clearFormData() {
   name.value = "";
   phoneNumber.value = "";
-  selectGroupCheck.checked = false;
+  selectGroupCheck.selectedIndex = 0;
   newGroup.value = "";
 }
 
@@ -288,7 +289,7 @@ function updateContactList(isFavoritesUpdate, favorites) {
       const li = document.createElement("li");
       li.innerHTML = `
     <span class="name-li">${contact.name}</span
-    ><span>${contact.phoneNumber}</span>
+    ><span class="phone-li">${contact.phoneNumber}</span>
     <button class="favorite" data-id=${
       contact.id
     } onclick="toggleFavorite(this.dataset.id)">
@@ -312,7 +313,7 @@ function updateContactList(isFavoritesUpdate, favorites) {
       const li = document.createElement("li");
       li.innerHTML = `
     <span class="name-li">${favoriteContact.name}</span
-    ><span>${favoriteContact.phoneNumber}</span>
+    ><span class="phone-li">${favoriteContact.phoneNumber}</span>
     <button class="favorite" data-id=${
       favoriteContact.id
     } onclick="toggleFavorite(this.dataset.id)">
