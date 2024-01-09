@@ -46,6 +46,7 @@ const isFavoriteCheckBox = document.querySelector("#is-favorite");
 // -- form variables
 let isGroupNew = false;
 let isCreatingNewContact = false;
+let isSelected = false;
 
 //--
 
@@ -335,10 +336,11 @@ function updateContactList(isFavoritesUpdate, favorites) {
 
 function updateContactsByGroup(group) {
   contactsByGroup = contacts.filter((contact) => contact.group === group);
-  contactsByGroup.forEach((contact) => {
-    contactsList.innerHTML = "";
-    const li = document.createElement("li");
-    li.innerHTML = `
+  if (isSelected === false) {
+    contactsByGroup.forEach((contact) => {
+      contactsList.innerHTML = "";
+      const li = document.createElement("li");
+      li.innerHTML = `
   <span class="name-li">${contact.name}</span
   ><span class="phone-li">${contact.phoneNumber}</span>
   <button class="favorite" data-id=${
@@ -355,10 +357,16 @@ function updateContactsByGroup(group) {
   } onclick="removeContactFromContactList(this.dataset.id)">
     <i class="ph ph-trash"></i>
   </button>`;
-    contactsList.appendChild(li);
-  });
+      contactsList.appendChild(li);
+      console.log(isSelected);
+      isSelected = true;
+    });
+  } else if (isSelected === true) {
+    isSelected = false;
+    updateContactList();
+    console.log(isSelected);
+  }
 }
-
 function getGroups() {
   const uniqueGroups = new Set();
   contacts.forEach((contact) => {
